@@ -1,0 +1,17 @@
+# Netlify configuration
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+# Redirect all routes to index.html for SPA routing
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Environment variables
+[context.production.environment]
+  VITE_API_URL = "https://musichub-backend.herokuapp.com"
+
+[context.deploy-preview.environment]
+  VITE_API_URL = "https://musichub-backend-staging.herokuapp.com" 

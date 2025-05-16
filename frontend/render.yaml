@@ -1,0 +1,14 @@
+services:
+  # Frontend web service
+  - type: web
+    name: musichub-frontend
+    env: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: VITE_API_URL
+        value: "https://musichub-backend.onrender.com"
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html 
